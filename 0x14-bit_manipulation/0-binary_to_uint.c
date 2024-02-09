@@ -1,48 +1,26 @@
 #include "main.h"
-/**
- * power_function - determines the power of a number
- * @exponent: exponent passed
- *daniel demerw
- * Return: Power
- */
-unsigned int power_function(unsigned int exponent)
-{
-	if (exponent == 0)
-	{
-		return (1);
-	}
-	else
-	{
-		return (2 * power_function(exponent - 1));
-	}
-}
 
 /**
- * binary_to_uint - binary to integer
- * @b: the character passed
+ * binary_to_uint - converts a binary number to unsigned int
+ * @b: string containing the binary number and changed it to the binary number ,zero aswell
  *
- * Return: unsigned int
+ * Return: the converted number 
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0;
-	unsigned int j = 0, base;
-	int i, count = 0;
+	int i;
+	unsigned int dec_val = 0;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
-	while (b[count] != '\0')
+
+	for (i = 0; b[i]; i++)
 	{
-		count++;
-	}
-	for (i = count - 1; i >= 0; i--)
-	{
-		base = power_function(j);
-		if (b[i] != '1' && b[i] != '0')
+		if (b[i] < '0' || b[i] > '1')
 			return (0);
-		sum = sum + (base * (b[i] - '0'));
-		j++;
+		dec_val = 2 * dec_val + (b[i] - '0');
 	}
-	return (sum);
+
+	return (dec_val);
 }
 
