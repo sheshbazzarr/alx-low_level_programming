@@ -5,7 +5,7 @@
 
 /**
  * main - check the code
- *
+ * this is 0-main.c:
  * Return: Always 0.
  */
 int main(void)
